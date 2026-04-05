@@ -1,0 +1,2 @@
+- Spec Kit simplifies SDD. 
+- It has useful commands to generate spec document, plan it, and refine it.
