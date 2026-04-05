@@ -1,0 +1,1 @@
+- Spec Kit scaffolded the project using Phase1 of tasks.md

@@ -1,0 +1,23 @@
+# Java
+target/
+*.class
+*.jar
+.gradle/
+build/
+
+# Node.js
+node_modules/
+dist/
+.next/
+out/
+build/
+*.log
+.env*
+
+# Universal
+.DS_Store
+Thumbs.db
+*.tmp
+*.swp
+.vscode/
+.idea/

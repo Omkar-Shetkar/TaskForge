@@ -19,10 +19,10 @@
 
 **Purpose**: Project initialization and basic structure
 
-- [ ] T001 Create project structure for `backend/` and `frontend/` per implementation plan
-- [ ] T002 [P] Initialize Spring Boot 3.2 project in `backend/` with Java 21
-- [ ] T003 [P] Initialize Next.js 14 project in `frontend/` with TypeScript and Tailwind CSS
-- [ ] T004 [P] Configure shared linting, formatting, and CI rules for both projects
+- [x] T001 Create project structure for `backend/` and `frontend/` per implementation plan
+- [x] T002 [P] Initialize Spring Boot 3.2 project in `backend/` with Java 21
+- [x] T003 [P] Initialize Next.js 14 project in `frontend/` with TypeScript and Tailwind CSS
+- [x] T004 [P] Configure shared linting, formatting, and CI rules for both projects
 
 ---
 
