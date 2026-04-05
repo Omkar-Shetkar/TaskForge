@@ -1,0 +1,4 @@
+- Never generate code without an approved task card
+- Every new feature must include unit tests
+- All commits must reference a task
+- Run lint + type check before committing

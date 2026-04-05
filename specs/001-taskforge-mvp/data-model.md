@@ -54,12 +54,24 @@
 - `mime_type`: String
 - `created_at`: Timestamp
 
+### Label
+- `id`: UUID (Primary Key)
+- `workspace_id`: UUID (Foreign Key to Workspace)
+- `name`: String (Not Null)
+- `color`: String (Hex code)
+- `created_at`: Timestamp
+
+### TaskLabel (Join Table)
+- `task_id`: UUID (Foreign Key to Task)
+- `label_id`: UUID (Foreign Key to Label)
+
 ## Relationships
-- A **Workspace** has many **Projects**.
+- A **Workspace** has many **Projects** and **Labels**.
 - A **Project** has many **ProjectMembers**.
 - A **Project** has many **Tasks**.
 - A **Task** can have one **Parent Task** and many **Subtasks**.
-- A **Task** has many **Comments** and **Attachments**.
+- A **Task** has many **Comments**, **Attachments**, and **Labels** (via TaskLabel).
+- A **Label** can be applied to many **Tasks**.
 
 ## State Transitions (Task)
 - `Todo` ↔ `In Progress` ↔ `Done`
