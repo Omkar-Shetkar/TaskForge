@@ -33,9 +33,9 @@
 **⚠️ CRITICAL**: Must complete before starting user stories
 
 - [ ] T005 Setup PostgreSQL database schema and migrations in `backend/src/main/resources/db/migration/`
-- [ ] T006 Implement base security framework with Spring Security in `backend/src/main/java/com/taskforge/security/`
+- [ ] T006 Implement base security framework with Spring Security in `backend/src/main/java/com/taskforge/auth/`
 - [ ] T007 [P] Configure Redis for real-time state management in `backend/src/main/resources/application.properties`
-- [ ] T008 [P] Setup WebSocket and STOMP configuration in `backend/src/main/java/com/taskforge/core/WebSocketConfig.java`
+- [ ] T008 [P] Setup WebSocket and STOMP configuration in `backend/src/main/java/com/taskforge/collab/WebSocketConfig.java`
 - [ ] T009 Implement generic Error Handling and Logging infrastructure in `backend/src/main/java/com/taskforge/core/error/`
 
 **Checkpoint**: Foundation ready - US implementation can begin
@@ -50,16 +50,16 @@
 
 ### Tests for User Story 1 (MANDATORY) ⚠️
 
-- [ ] T010 [P] [US1] Write failing integration tests for Workspace creation in `backend/src/test/java/com/taskforge/api/WorkspaceControllerIT.java`
-- [ ] T011 [P] [US1] Write failing contract tests for Team Invitation API in `backend/src/test/java/com/taskforge/api/InvitationContractTest.java`
+- [ ] T010 [P] [US1] Write failing integration tests for Workspace creation in `backend/src/test/java/com/taskforge/project/WorkspaceControllerIT.java`
+- [ ] T011 [P] [US1] Write failing contract tests for Team Invitation API in `backend/src/test/java/com/taskforge/project/InvitationContractTest.java`
 
 ### Implementation for User Story 1
 
-- [ ] T012 [P] [US1] Implement `Workspace` and `ProjectMember` entities in `backend/src/main/java/com/taskforge/core/model/`
-- [ ] T013 [US1] Implement Workspace and Invitation services with TDD in `backend/src/main/java/com/taskforge/core/service/`
-- [ ] T014 [US1] Implement project-level RBAC evaluation logic in `backend/src/main/java/com/taskforge/security/ProjectSecurityEvaluator.java`
+- [ ] T012 [P] [US1] Implement `Workspace` and `ProjectMember` entities in `backend/src/main/java/com/taskforge/project/model/`
+- [ ] T013 [US1] Implement Workspace and Invitation services with TDD in `backend/src/main/java/com/taskforge/project/service/`
+- [ ] T014 [US1] Implement project-level RBAC evaluation logic in `backend/src/main/java/com/taskforge/auth/ProjectSecurityEvaluator.java`
 - [ ] T015 [US1] Create Onboarding and Team Management UI in `frontend/src/pages/onboarding/` and `frontend/src/components/team/`
-- [ ] T016 [US1] Integrate frontend with Workspace and Invitation APIs
+- [ ] T016 [US1] Integrate frontend with Workspace and Invitation APIs in `frontend/src/services/projectService.ts`
 
 **Checkpoint**: US1 fully functional and testable independently
 
@@ -73,16 +73,16 @@
 
 ### Tests for User Story 2 (MANDATORY) ⚠️
 
-- [ ] T017 [P] [US2] Write failing unit tests for Task entity and subtask rollup logic in `backend/src/test/java/com/taskforge/core/model/TaskTest.java`
-- [ ] T018 [P] [US2] Write failing integration tests for Task CRUD API in `backend/src/test/java/com/taskforge/api/TaskControllerIT.java`
+- [ ] T017 [P] [US2] Write failing unit tests for Task entity and subtask rollup logic in `backend/src/test/java/com/taskforge/task/model/TaskTest.java`
+- [ ] T018 [P] [US2] Write failing integration tests for Task CRUD API in `backend/src/test/java/com/taskforge/task/TaskControllerIT.java`
 
 ### Implementation for User Story 2
 
-- [ ] T019 [P] [US2] Implement `Task` entity with `@Version` for optimistic locking in `backend/src/main/java/com/taskforge/core/model/Task.java`
-- [ ] T020 [US2] Implement Task Service with subtask management and progress rollup in `backend/src/main/java/com/taskforge/core/service/TaskService.java`
+- [ ] T019 [P] [US2] Implement `Task` entity with `@Version` for optimistic locking in `backend/src/main/java/com/taskforge/task/model/Task.java`
+- [ ] T020 [US2] Implement Task Service with subtask management and progress rollup in `backend/src/main/java/com/taskforge/task/service/TaskService.java`
 - [ ] T021 [US2] Create Task Creation and Detail UI components in `frontend/src/components/tasks/`
 - [ ] T022 [US2] Implement Task Management service in `frontend/src/services/taskService.ts`
-- [ ] T023 [US2] Implement "Last Write Wins" conflict handling in `frontend/src/hooks/useTaskUpdates.ts`
+- [ ] T023 [US2] Implement "Last Write Wins" conflict handling logic in `frontend/src/hooks/useTaskUpdates.ts`
 
 **Checkpoint**: Task management functional; US1 + US2 form core MVP
 
@@ -96,13 +96,13 @@
 
 ### Tests for User Story 3 (MANDATORY) ⚠️
 
-- [ ] T024 [P] [US3] Write failing integration tests for Comment API and @mention detection in `backend/src/test/java/com/taskforge/api/CommentControllerIT.java`
-- [ ] T025 [P] [US3] Write failing WebSocket event delivery tests in `backend/src/test/java/com/taskforge/core/RealTimeUpdateTest.java`
+- [ ] T024 [P] [US3] Write failing integration tests for Comment API and @mention detection in `backend/src/test/java/com/taskforge/collab/CommentControllerIT.java`
+- [ ] T025 [P] [US3] Write failing WebSocket event delivery tests in `backend/src/test/java/com/taskforge/collab/RealTimeUpdateTest.java`
 
 ### Implementation for User Story 3
 
-- [ ] T026 [P] [US3] Implement `Comment` and `Notification` entities in `backend/src/main/java/com/taskforge/core/model/`
-- [ ] T027 [US3] Implement Comment Service with @mention parsing and event broadcasting in `backend/src/main/java/com/taskforge/core/service/CommentService.java`
+- [ ] T026 [P] [US3] Implement `Comment` and `Notification` entities in `backend/src/main/java/com/taskforge/collab/model/`
+- [ ] T027 [US3] Implement Comment Service with @mention parsing and event broadcasting in `backend/src/main/java/com/taskforge/collab/service/CommentService.java`
 - [ ] T028 [US3] Create Comment Feed and Notification Bell UI in `frontend/src/components/collaboration/`
 - [ ] T029 [US3] Setup WebSocket client and STOMP subscriptions in `frontend/src/services/realtimeService.ts`
 
@@ -119,14 +119,14 @@
 ### Tests for User Story 4 (MANDATORY) ⚠️
 
 - [ ] T030 [P] [US4] Write failing unit tests for Gemini AI service integration in `backend/src/test/java/com/taskforge/ai/GeminiServiceTest.java`
-- [ ] T031 [P] [US4] Write failing contract tests for AI breakdown endpoint in `backend/src/test/java/com/taskforge/api/AIContractTest.java`
+- [ ] T031 [P] [US4] Write failing contract tests for AI breakdown endpoint in `backend/src/test/java/com/taskforge/ai/AIContractTest.java`
 
 ### Implementation for User Story 4
 
-- [ ] T032 [US4] Implement `GeminiService` for backend-orchestrated AI calls in `backend/src/main/java/com/taskforge/ai/GeminiService.java`
-- [ ] T033 [US4] Implement AI breakdown endpoint with structured prompt management in `backend/src/main/java/com/taskforge/api/AIController.java`
+- [ ] T032 [US4] Implement `GeminiService` for backend-orchestrated AI calls in `backend/src/main/java/com/taskforge/ai/service/GeminiService.java`
+- [ ] T033 [US4] Implement AI breakdown endpoint with structured prompt management in `backend/src/main/java/com/taskforge/ai/api/AIController.java`
 - [ ] T034 [US4] Create AI Suggestion UI components (interactive subtask selection) in `frontend/src/components/ai/`
-- [ ] T035 [US4] Implement risk detection AI analysis logic in `backend/src/main/java/com/taskforge/ai/RiskAnalyzer.java`
+- [ ] T035 [US4] Implement risk detection AI analysis logic in `backend/src/main/java/com/taskforge/ai/service/RiskAnalyzer.java`
 
 **Checkpoint**: AI features integrated and functional
 
@@ -157,13 +157,13 @@
 
 ### Tests for User Story 6 (MANDATORY) ⚠️
 
-- [ ] T040 [P] [US6] Write failing tests for Report Generation (CSV/PDF) in `backend/src/test/java/com/taskforge/core/service/ReportServiceTest.java`
-- [ ] T041 [P] [US6] Write failing integration tests for Dashboard stats API in `backend/src/test/java/com/taskforge/api/DashboardControllerIT.java`
+- [ ] T040 [P] [US6] Write failing tests for Report Generation (CSV/PDF) in `backend/src/test/java/com/taskforge/report/ReportServiceTest.java`
+- [ ] T041 [P] [US6] Write failing integration tests for Dashboard stats API in `backend/src/test/java/com/taskforge/report/DashboardControllerIT.java`
 
 ### Implementation for User Story 6
 
-- [ ] T042 [US6] Implement Dashboard Service for progress chart data in `backend/src/main/java/com/taskforge/core/service/DashboardService.java`
-- [ ] T043 [US6] Implement CSV and PDF Export Service in `backend/src/main/java/com/taskforge/core/service/ExportService.java`
+- [ ] T042 [US6] Implement Dashboard Service for progress chart data in `backend/src/main/java/com/taskforge/report/service/DashboardService.java`
+- [ ] T043 [US6] Implement CSV and PDF Export Service in `backend/src/main/java/com/taskforge/report/service/ExportService.java`
 - [ ] T044 [US6] Create Dashboard UI with progress charts in `frontend/src/pages/dashboard/`
 - [ ] T045 [US6] Add Export buttons and file download handling in `frontend/src/components/common/ExportActions.tsx`
 
