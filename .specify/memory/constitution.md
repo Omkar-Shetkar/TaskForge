@@ -1,50 +1,75 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report:
+- Version change: [PROJECT_SETUP] → 1.0.0
+- List of modified principles:
+  - [PRINCIPLE_1_NAME] → I. Library-First
+  - [PRINCIPLE_2_NAME] → II. Test-Driven Development (TDD)
+  - [PRINCIPLE_3_NAME] → III. Domain-Driven Design (DDD)
+  - [PRINCIPLE_4_NAME] → IV. Real-time Collaboration
+  - [PRINCIPLE_5_NAME] → V. AI-Assisted Orchestration
+- Added sections: Additional Constraints, Development Workflow
+- Removed sections: None
+- Templates requiring updates:
+  - .specify/templates/plan-template.md (✅ updated)
+  - .specify/templates/spec-template.md (✅ updated)
+  - .specify/templates/tasks-template.md (✅ updated)
+- Follow-up TODOs: None
+-->
+
+# TaskForge Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Library-First
+Every feature starts as a standalone library or module. Logic must be self-contained, independently 
+testable, and documented. This reduces coordination overhead by ensuring clear boundaries between 
+components and promoting reuse across the orchestrator.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Test-Driven Development (TDD)
+We follow a strict TDD approach. Tests MUST be written and approved before implementation starts. 
+The Red-Green-Refactor cycle is non-negotiable for all core business logic, API contracts, and 
+AI integrations.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Domain-Driven Design (DDD)
+We employ DDD and standard design patterns to model the task orchestration domain. Design MUST be 
+pragmatic—aiming for clarity and maintainability without over-engineering. Core entities and 
+services MUST reflect the ubiquitous language of the project.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Real-time Collaboration
+Real-time synchronization is a first-class citizen. All collaborative features (task updates, 
+comments, mentions) MUST prioritize low-latency sync (<500ms) to ensure a seamless "live" 
+experience for teams.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. AI-Assisted Orchestration
+AI is integrated to reduce cognitive load and coordination overhead. AI features (subtask 
+generation, risk detection) MUST be verifiable, provide interactive feedback, and strictly 
+align with user intent.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## Additional Constraints
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+- **Tech Stack**: The project uses Next.js + Tailwind for the frontend and Spring Boot (Java) 
+  for the backend. Gemini is the primary AI provider.
+- **Concurrency**: A "Last Write Wins" strategy is used for simple, predictable conflict 
+  resolution during the MVP phase.
+- **Privacy**: Project-level RBAC is mandatory; tasks and project data MUST only be visible 
+  to assigned project members.
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+## Development Workflow
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+- **Sequence**: Every feature MUST follow the Sequential Execution flow: Specification 
+  → Implementation Planning → Task Decomposition → Implementation → Validation.
+- **Quality Gates**: All pull requests MUST pass the TDD test suite, linting, and a peer 
+  review that explicitly verifies compliance with these principles.
+- **Documentation**: Specifications and implementation plans are living documents and 
+  MUST be updated in lockstep with code changes.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+- This constitution supersedes all other local practices or patterns.
+- Amendments require a formal update via the `/speckit.constitution` command and 
+  consensus among core maintainers.
+- Versioning follows Semantic Versioning (SemVer) rules: MAJOR for principle changes, 
+  MINOR for additions, PATCH for clarifications.
+- Compliance reviews are expected during every planning and implementation phase.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2026-04-05 | **Last Amended**: 2026-04-05
