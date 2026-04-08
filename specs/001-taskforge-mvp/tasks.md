@@ -32,12 +32,12 @@
 
 **⚠️ CRITICAL**: Must complete before starting user stories
 
-- [ ] T005 Setup PostgreSQL database schema and migrations in `backend/src/main/resources/db/migration/`
-- [ ] T006 Implement base security framework with Spring Security in `backend/src/main/java/com/taskforge/auth/`
-- [ ] T007 [P] Implement S3-compatible attachment storage with signed URLs in `backend/src/main/java/com/taskforge/core/service/FileStorageService.java`
-- [ ] T008 [P] Configure Redis for real-time state management in `backend/src/main/resources/application.properties`
-- [ ] T009 [P] Setup WebSocket and STOMP configuration in `backend/src/main/java/com/taskforge/collab/WebSocketConfig.java`
-- [ ] T010 Implement generic Error Handling and Logging infrastructure in `backend/src/main/java/com/taskforge/core/error/`
+- [x] T005 Setup PostgreSQL database schema and migrations in `backend/src/main/resources/db/migration/`
+- [x] T006 Implement base security framework with Spring Security in `backend/src/main/java/com/taskforge/auth/`
+- [x] T007 [P] Implement S3-compatible attachment storage with signed URLs in `backend/src/main/java/com/taskforge/core/service/FileStorageService.java`
+- [x] T008 [P] Configure Redis for real-time state management in `backend/src/main/resources/application.properties`
+- [x] T009 [P] Setup WebSocket and STOMP configuration in `backend/src/main/java/com/taskforge/collab/WebSocketConfig.java`
+- [x] T010 Implement generic Error Handling and Logging infrastructure in `backend/src/main/java/com/taskforge/core/error/`
 
 **Checkpoint**: Foundation ready - US implementation can begin
 
